@@ -3,7 +3,6 @@
 Total: <%= @articles.size %>
 <% @articles.each do |article| %>
 <div class="row">
-
   <div class="col-sm-3">
     <div class="well">
      <p><%= article.title %></p>
@@ -11,13 +10,18 @@ Total: <%= @articles.size %>
     </div>
   </div>
 
-  <div class="col-sm-9">      
+  <div class="col-sm-6">      
     <div class="well">
       <%= article.description %>
-      <p class="label label-default"><%= article.likes_count %></p>
-        <p><%= button_to 'Like', likes_url(article_id: article.id), method: :post, class: 'btn btn-default btn-sm'%></p>
+      <%= likes_btn(article) %>
     </div> 
+  </div>
 
+  <div class="col-sm-3">
+    <div class="well">
+     <p><%= article.user.first_name %></p>
+     <img src= <%= article.user.avatar_url %> class="img-circle" height="55" width="55" alt="Avatar">
+    </div>
   </div>
 </div>
 <% end %>
