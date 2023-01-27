@@ -29,7 +29,7 @@ Articles App consumes olio v4 json API and lists the articles. Users can like an
 
    Run > `rails s`
 
-   ![Application UI] (/assets/images/app_ui.png)
+   ![Application UI](/assets/images/app_ui.png)
 
 
 
