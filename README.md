@@ -1,24 +1,35 @@
-# README
+Articles App consumes olio v4 json API and lists the articles. Users can like an article.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+|               | Versions      |
+| ------------- | ------------- |
+| Ruby          | 3.0.4         |
+| Rails         | 6.1.7         |
+| SqLite3       | 1.4        |
 
-* Ruby version
 
 * System dependencies
 
-* Configuration
+  This code was written and tested in Ubuntu 22.04
 
-* Database creation
+* Set Up
 
-* Database initialization
+  Run `bin/setup`
+
+  This should take care of bundle install, DB creation and migration
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+    To run the complete test suite, use the below command
 
-* Deployment instructions
+     `rspec`
 
-* ...
+
+* How to start the server
+
+   Run > `rails s`
+
+* Known Issues
+
+   1. article likes count is stored and read from local database. The reactions[:likes] from the API JSON is not used to display / the likes count is not updated in the API server
+   2. Bootstrap is not installed properly due to some system issue. Hence used it directly using hyperlink to bootstrap just for the purpose of this test
