@@ -2,24 +2,18 @@
 
 Total: <%= @articles.size %>
 <% @articles.each do |article| %>
-<div class="row">
-  <div class="col-sm-3">
+<div class="row row-padding" style="background: #C3CEF0;">
+  <div class="col-md-9" style="margin-top:25px;">
     <div class="well">
-     <p><%= article.title %></p>
+     <p><b>Article:</b> <%= article.title %></p>
+     <p><b>Description:</b><%= article.description %></p>
      <img src= <%= article.image_url %> class="img-circle" height="55" width="55" alt="Avatar">
+     <%= likes_btn(article) %>
     </div>
   </div>
-
-  <div class="col-sm-6">      
-    <div class="well">
-      <%= article.description %>
-      <%= likes_btn(article) %>
-    </div> 
-  </div>
-
-  <div class="col-sm-3">
-    <div class="well">
-     <p><%= article.user.first_name %></p>
+  <div class="col-md-3" style="margin-top:25px;">
+    <div class="well" style="height: 185px;">
+     <p><b>Listed by:</b> <%= article.user.first_name %></p>
      <img src= <%= article.user.avatar_url %> class="img-circle" height="55" width="55" alt="Avatar">
     </div>
   </div>
