@@ -18,6 +18,4 @@ class ArticlesController < ApplicationController
       .pluck(:article_id, :likes_count)
       .to_h
   end
-
-  # source ~/.rvm/scripts/rvm
 end

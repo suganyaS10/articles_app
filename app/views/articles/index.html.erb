@@ -11,18 +11,11 @@ Total: <%= @articles.size %>
     </div>
   </div>
 
-
   <div class="col-sm-9">      
-   <!--  <p>ID:  article.id %></p>
-    <p>Title: <article.id %></p>
-    <p>Description: < article.id %></p>
-    < # TODO:: Load Images async %>
-    <p>Image: < article.image_url.present? ? image_tag(article.image_url) : '' %></p>
-    <p>Username: < article.user.first_name %></p>
-    <p>Likes: < article.likes_count %></p> -->
     <div class="well">
       <%= article.description %>
-      <p class="label label-default"><%= article.likes_count %><%= link_to 'Like', likes_url(article_id: article.id),  class: 'btn btn-default btn-sm', method: :post%></p>
+      <p class="label label-default"><%= article.likes_count %></p>
+        <p><%= button_to 'Like', likes_url(article_id: article.id), method: :post, class: 'btn btn-default btn-sm'%></p>
     </div> 
 
   </div>
