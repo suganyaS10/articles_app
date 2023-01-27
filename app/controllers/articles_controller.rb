@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 
   def index
-    # TODO: Optimize to paginate and load in batches using range
     _articles = Article
       .all
     like_counts = find_like_counts(_articles.map(&:id))

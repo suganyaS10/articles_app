@@ -13,6 +13,6 @@ class LikesController < ApplicationController
   end
 
   def like_params
-  	params.permit(:article_id)
+    params.permit(:article_id)
   end
 end

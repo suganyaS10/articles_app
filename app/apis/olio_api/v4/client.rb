@@ -40,8 +40,6 @@ module OlioApi
         Array.wrap(resp).map { |obj_data| wrapper_klass.parse(obj_data) }
       end
 
-      # TODO: Optimize by fetching in chunks using Range Header & threads(max 5)
-      # Use https://github.com/httprb/http/wiki/Persistent-Connections-%28keep-alive%29
       def handle_response(resp)
         return parsed_response(resp) if resp.status.success?
         raise FailedResponseError.new(resp.status.to_s)
