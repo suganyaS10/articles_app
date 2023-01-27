@@ -29,10 +29,6 @@ Articles App consumes olio v4 json API and lists the articles. Users can like an
 
    Run > `rails s`
 
-   ![Application UI](/assets/images/app_ui.png)
-
-
-
 * Known Issues
 
    1. article likes count is stored and read from local database. The reactions[:likes] from the API JSON is not used to display / the likes count is not updated in the API server
