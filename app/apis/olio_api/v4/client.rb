@@ -29,7 +29,7 @@ module OlioApi
         resp = HTTP.headers(headers)
           .public_send(req_method, req_path, opts)
         handle_response(resp)
-      rescue HTTP::Error => ex
+      rescue HTTP::Error, FailedResponseError => ex
         handle_http_exception(ex)
       end
 
@@ -44,7 +44,7 @@ module OlioApi
       # Use https://github.com/httprb/http/wiki/Persistent-Connections-%28keep-alive%29
       def handle_response(resp)
         return parsed_response(resp) if resp.status.success?
-        raise OlioFailedResponseError.new(resp.status.to_s)
+        raise FailedResponseError.new(resp.status.to_s)
       end
 
       def parsed_response(resp)
@@ -55,12 +55,11 @@ module OlioApi
         when 'application/json'
           Oj.load(resp_body)
         else
-          raise OlioUnknownResponseType.new(content_type)
+          raise UnknownResponseType.new(content_type)
         end
       end
 
       def handle_http_exception(ex)
-        # log / instrument and reraise
         raise ex
       end
     end
